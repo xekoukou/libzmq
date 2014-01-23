@@ -170,7 +170,7 @@ int main(int, char**)
             }
             else {
                 printf ("server received %d bytes.\n", size);
-		fprintf(stderr, "size = %d, len = %ld\n", size, strlen(dialog [step].text));
+		fprintf(stderr, "size = %d, len = %u\n", size, strlen(dialog [step].text));
 		assert((size_t)size == strlen(dialog [step].text));
 		int cmp = memcmp(dialog [step].text, data, size);
 		assert (cmp == 0);
@@ -228,7 +228,7 @@ int main(int, char**)
             // Make sure payload matches what we expect.
             const char * const data = (const char*)zmq_msg_data (&data_frame);
             const int size = zmq_msg_size (&data_frame);
-	    fprintf(stderr, "size = %d, len = %ld\n", size, strlen(dialog [step].text));
+	    fprintf(stderr, "size = %d, len = %u\n", size, strlen(dialog [step].text));
 	    assert((size_t)size == strlen(dialog [step].text));
             int cmp = memcmp(dialog [step].text, data, size);
             assert (cmp == 0);
